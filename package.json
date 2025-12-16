@@ -2,17 +2,18 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/dimitreyash/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/dimitreyash/frontend-project-46/actions)",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^14.0.2"
+    "commander": "^14.0.2",
+    "lodash": "^4.17.21"
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
-  },
-  "type": "module"
+  }
 }
