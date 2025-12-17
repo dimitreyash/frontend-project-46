@@ -1,14 +1,17 @@
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
 import gendiff from '../src/index.js'
-import result from '../__fixtures__/result.js'
-import { expect, test } from '@jest/globals'
+import { describe, expect, test } from '@jest/globals'
 
-test('check json', () => {
-  expect(gendiff('./__fixtures__/file1.json', './__fixtures__/file2.json')).toEqual(result)
-})
-test('check yml', () => {
-  expect(gendiff('./__fixtures__/file1.yml', './__fixtures__/file2.yml')).toEqual(result)
-})
+const getFixturePath = name => path.resolve(process.cwd(), '__fixtures__', name)
+const readFixture = name => readFileSync(getFixturePath(name), 'utf-8')
 
-test('check yaml', () => {
-  expect(gendiff('./__fixtures__/file1.yaml', './__fixtures__/file2.yaml')).toEqual(result)
+describe('gendiff', () => {
+  test.each(['json', 'yml'])('nested %s', (ext) => {
+    const file1 = getFixturePath(`file1.${ext}`)
+    const file2 = getFixturePath(`file2.${ext}`)
+    const expected = readFixture('resultStylish.txt')
+
+    expect(gendiff(file1, file2)).toEqual(expected.trimEnd())
+  })
 })
