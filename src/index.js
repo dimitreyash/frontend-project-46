@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import _ from 'lodash'
+import parser from './parser.js'
 
 const formatValue = value => value
 
@@ -11,8 +12,11 @@ export default function gendiff(filepath1, filepath2) {
   const file1 = readFileSync(path1, 'utf-8')
   const file2 = readFileSync(path2, 'utf-8')
 
-  const data1 = JSON.parse(file1)
-  const data2 = JSON.parse(file2)
+  const format1 = path.extname(path1).slice(1)
+  const format2 = path.extname(path2).slice(1)
+
+  const data1 = parser(file1, format1)
+  const data2 = parser(file2, format2)
 
   const keys = _.union(Object.keys(data1), Object.keys(data2)).sort()
 
@@ -25,7 +29,7 @@ export default function gendiff(filepath1, filepath2) {
     }
 
     if (!hasKey2) {
-      return `  + ${key}: ${formatValue(data1[key])}`
+      return `  - ${key}: ${formatValue(data1[key])}`
     }
 
     if (data1[key] === data2[key]) {

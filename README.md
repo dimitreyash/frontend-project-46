@@ -8,3 +8,4 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=dimitreyash_frontend-project-46&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=dimitreyash_frontend-project-46)
 
 [![asciicast](https://asciinema.org/a/1Wx0ZEOmn3wPEVLa3CKnjizOZ.svg)](https://asciinema.org/a/1Wx0ZEOmn3wPEVLa3CKnjizOZ)
+[![asciicast](https://asciinema.org/a/vvH2beaNmVyPcFiD19Lu70gQ6.svg)](https://asciinema.org/a/vvH2beaNmVyPcFiD19Lu70gQ6)
