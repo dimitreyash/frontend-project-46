@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import parser from './parser.js'
 import buildDiff from './buildDiff.js'
-import stylish from './formatters/stylish.js'
+import format from './formatters/index.js'
 
 export default function gendiff(filepath1, filepath2, formatName = 'stylish') {
   const path1 = path.resolve(process.cwd(), filepath1)
@@ -18,9 +18,5 @@ export default function gendiff(filepath1, filepath2, formatName = 'stylish') {
   const data2 = parser(file2, format2)
 
   const diffTree = buildDiff(data1, data2)
-
-  if (formatName === 'stylish') {
-    return stylish(diffTree)
-  }
-  throw new Error(`Unknown format: ${formatName}`)
+  return format(diffTree, formatName)
 }

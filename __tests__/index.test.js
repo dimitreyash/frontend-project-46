@@ -14,4 +14,12 @@ describe('gendiff', () => {
 
     expect(gendiff(file1, file2)).toEqual(expected.trimEnd())
   })
+
+  test.each(['json', 'yml'])('nested plain %s', (ext) => {
+    const file1 = getFixturePath(`file1.${ext}`)
+    const file2 = getFixturePath(`file2.${ext}`)
+    const expected = readFixture('resultPlain.txt')
+
+    expect(gendiff(file1, file2, 'plain')).toEqual(expected.trimEnd())
+  })
 })

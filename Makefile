@@ -1,8 +1,14 @@
 install:
-	npm ci
+	npm install
 
 run:
 	gendiff __fixtures__/file1.json __fixtures__/file2.json
+
+run-plain:
+	gendiff --format plain __fixtures__/file1.json __fixtures__/file2.json
+
+run-json:
+	gendiff --format json __fixtures__/file1.json __fixtures__/file2.json
 
 deps-update:
 	npx ncu -u
@@ -21,3 +27,5 @@ lint-fix:
 
 publish:
 	npm publish --dry-run
+
+
