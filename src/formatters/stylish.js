@@ -14,7 +14,7 @@ const toStringValue = (value) => {
 const indentForSign = depth => ' '.repeat(depth * INDENT_SIZE - 2)
 const indentForBracket = depth => ' '.repeat((depth - 1) * INDENT_SIZE)
 
-const formatPair = (key, rendered) => (rendered === '' ? `${key}:` : `${key}: ${rendered}`)
+const formatPair = (key, rendered) => `${key}: ${rendered}`
 
 const stringify = (value, depth) => {
   if (!isPlainObject(value)) {
