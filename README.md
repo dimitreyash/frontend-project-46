@@ -37,3 +37,4 @@ gendiff --format json __fixtures__/file1.json __fixtures__/file2.json
 [![asciicast](https://asciinema.org/a/vvH2beaNmVyPcFiD19Lu70gQ6.svg)](https://asciinema.org/a/vvH2beaNmVyPcFiD19Lu70gQ6)
 [![asciicast](https://asciinema.org/a/0XBvO6G0sf4rKvJA2DKdiiPo7.svg)](https://asciinema.org/a/0XBvO6G0sf4rKvJA2DKdiiPo7)
 [![asciicast](https://asciinema.org/a/suNtdiuZ5BbcfmfWYkCh5hhBb.svg)](https://asciinema.org/a/suNtdiuZ5BbcfmfWYkCh5hhBb)
+[![asciicast](https://asciinema.org/a/S1OoY9tO0iEdZNoU6OC0QXdxS.svg)](https://asciinema.org/a/S1OoY9tO0iEdZNoU6OC0QXdxS)

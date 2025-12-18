@@ -22,4 +22,21 @@ describe('gendiff', () => {
 
     expect(gendiff(file1, file2, 'plain')).toEqual(expected.trimEnd())
   })
+
+  test.each(['json', 'yml'])('nested json %s', (ext) => {
+    const file1 = getFixturePath(`file1.${ext}`)
+    const file2 = getFixturePath(`file2.${ext}`)
+
+    const expected = JSON.parse(readFixture('resultJson.json'))
+    const result = JSON.parse(gendiff(file1, file2, 'json'))
+
+    expect(result).toEqual(expected)
+  })
+
+  test('throws error for unknown format', () => {
+    const file1 = getFixturePath('file1.json')
+    const file2 = getFixturePath('file2.json')
+
+    expect(() => gendiff(file1, file2, 'unknown')).toThrow()
+  })
 })
